@@ -1,0 +1,72 @@
+﻿
+
+
+@model IEnumerable<ONLINEFOODMOLL.Models.Photo>
+
+
+@{
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+@*@{
+    ViewBag.Title = "Index";
+}*@
+
+
+<style>
+
+    #a1 {
+        display: none;
+    }
+    #a2{
+        color:red;
+        text-align:center;
+    }
+</style>
+<br />
+<h3 id="a2">THIS IS OUR PRODUCTS </h3>
+<br />
+<p>
+    @using (Html.BeginForm("Index", "DATA", FormMethod.Get))
+    {
+        @*<b>Search By :</b>*@ @Html.RadioButton("searchBy", "Name", true, new { @id = "a1" }) @*<text>Name</text>*@
+        <div class="row">
+            <div class="col-3">
+                @Html.TextBox("search", "", new { @class = "form-control" })
+            </div>
+            <div class="col-1">
+                <input type="submit" value="Search" class="btn btn-outline-info " />
+            </div>
+            <div class="col-8"></div>
+        </div>
+
+    }
+    </ p >
+    <br />
+
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-12 col-md-4 col-lg-4 mt-1">
+
+                    <div class="card">
+                        @*<div class="card col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-3 mb-3">*@
+                        <img src="@Url.Content(item.image_path)" class="card-img-top" alt="..." style="height:300px;">
+                        <div class="card-body">
+                            @*<h5 class="card-title">@item.standard</h5>*@
+                            <h3 class="card-text">@item.p_name </h3> &nbsp;
+                            <h3 class="card-text">@item.p_price</h3>
+                            @Html.ActionLink("Order Now", "Single", new { id = item.p_id }, new { @class = "btn btn-outline-success" })
+
+                            @*@Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary btn-sm" }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info btn-sm" }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger btn-sm" })*@
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+        </div>
+    </div>

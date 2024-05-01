@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="onlinefoodmollModel1StoreContainer" CdmEntityContainer="onlinefoodmollEntities1">
+    <EntitySetMapping Name="Invoice2">
+      <EntityTypeMapping TypeName="onlinefoodmollModel1.Invoice2">
+        <MappingFragment StoreEntitySet="Invoice2">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="p_price" ColumnName="p_price" />
+          <ScalarProperty Name="p_quantity" ColumnName="p_quantity" />
+          <ScalarProperty Name="p_total" ColumnName="p_total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,52 @@
+﻿@model ONLINEFOODMOLL.Models.Photo
+@{
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.p_id)
+        </dt>
+
+        <dt>
+            @Html.DisplayFor(model => model.p_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.p_name)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.p_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image_path)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content( Session["Image2"].ToString())" height="80" width="80" /><br />
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.p_id }, new { @class = "btn btn-info mt-2" }) |
+    @Html.ActionLink("Back to List", "IndexData", "Photo", new { @class = "btn btn-primary mt-2" })
+</p>

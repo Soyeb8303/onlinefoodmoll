@@ -1,0 +1,64 @@
+﻿@model ONLINEFOODMOLL.Models.Photo
+@{
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@Html.Raw(TempData["UpdateMessage"])
+@Html.Raw(TempData["SizeMessage"])
+@Html.Raw(TempData["ExtensionMessage"])
+
+@using (Html.BeginForm("Edit", "Photo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>student</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.p_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.p_name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.p_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.p_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.p_price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.p_price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.p_price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.image_path, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Url.Content(Session["Image"].ToString())" height="80" width="80" /><br />
+                <input type="file" name="ImageFile" />
+                @*@Html.EditorFor(model => model.image_path, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.image_path, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success mt-2" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "IndexData", "Photo", new { @class = "btn btn-primary mt-2" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

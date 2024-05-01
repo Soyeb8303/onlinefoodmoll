@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="onlinefoodmollModel2StoreContainer" CdmEntityContainer="onlinefoodmollEntities2">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="onlinefoodmollModel2.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="onlinefoodmollModel2.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="onlinefoodmollModel2.Invoice">
+        <MappingFragment StoreEntitySet="Invoice">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="p_price" ColumnName="p_price" />
+          <ScalarProperty Name="p_quantity" ColumnName="p_quantity" />
+          <ScalarProperty Name="p_total" ColumnName="p_total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoice2">
+      <EntityTypeMapping TypeName="onlinefoodmollModel2.Invoice2">
+        <MappingFragment StoreEntitySet="Invoice2">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="p_price" ColumnName="p_price" />
+          <ScalarProperty Name="p_quantity" ColumnName="p_quantity" />
+          <ScalarProperty Name="p_total" ColumnName="p_total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="onlinefoodmollModel2.Photo">
+        <MappingFragment StoreEntitySet="Photo">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="p_price" ColumnName="p_price" />
+          <ScalarProperty Name="image_path" ColumnName="image_path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

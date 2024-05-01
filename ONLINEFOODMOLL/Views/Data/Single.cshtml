@@ -1,0 +1,33 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+@model ONLINEFOODMOLL.Models.Photo
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+
+            <div class="col-lg-6">
+                <input type="hidden" name="id" value="@Model.p_id" />
+                <img src="@Url.Content(@Model.image_path)" class="card-img-top" alt="..." style="height:350px; width:100%">
+                @* <img src="~/images/@Model.image_path" class="card-img-top" alt="..." style="height:300px; width:100%">
+                    <img src="@Url.Content(item.image_path)" class="card-img-top" alt="..." style="height:300px; width:100%">*@
+            </div>
+            <div class="col-6">
+                @*<h3 class="card-text mt-5 mx-5">@Model.standard </h3>*@
+                <h3 class="card-text mx-5">@Model.p_name </h3>
+                <p class="mx-5"><strong>@Model.p_price</strong></p>
+                <input type="number" class="mx-5" placeholder="enter qty" min="0" max="10" name="qty" />
+                <input type="submit" value="Add to Cart" class="btn btn-warning mx-1" />
+
+            </div>
+
+        </div>
+    }
+</div>
+
+
+

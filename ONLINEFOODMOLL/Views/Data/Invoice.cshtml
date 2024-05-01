@@ -1,0 +1,104 @@
+﻿
+@model ONLINEFOODMOLL.Models.Invoice
+@{
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+ @ViewBag.OrderMessage
+
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12 form-group">
+                <p>
+                    @Html.LabelFor(model => model.name) &nbsp;@Html.TextBoxFor(model => model.name, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 form-group">
+                <p>
+                    @Html.LabelFor(model => model.email) &nbsp;@Html.TextBoxFor(model => model.email, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-1 form-group2">
+                <p>
+                    @Html.LabelFor(model => model.date) &nbsp;@Html.EditorFor(model => model.date, "", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+                </p>
+            </div>
+        </div>
+
+        @foreach (var item in TempData["cart"] as List<ONLINEFOODMOLL.Models.Cart>
+    )
+
+        {
+            <div class="container form-group">
+                <div class="row">
+                    <div class="col-3 ">
+                        <p>
+                            @Html.LabelFor(model => model.p_name)
+                            @Html.TextBoxFor(model => model.p_name,
+                                   "", new { @class = "form-control", @Value = item.p_name, @readonly = true })
+                        </p>
+
+                    </div>
+                    <div class="col-3 form-group">
+
+                        <p>
+                            @Html.LabelFor(model => model.p_price)
+                            @Html.TextBoxFor(model => model.p_price,
+                          "", new { @class = "form-control", @Value = @item.p_price, @readonly = true })
+                        </p>
+                        @*<h5>@item.price</h5>*@
+                    </div>
+                    <div class="col-3 form-group">
+
+
+                        <p>
+                            @Html.LabelFor(model => model.p_qty)
+                            @Html.TextBoxFor(model => model.p_qty,
+                   "", new { @class = "form-control", @Value = @item.p_qty, @readonly = true })
+                        </p>
+                        @*<h5>@item.qty</h5>*@
+                    </div>
+                    <div class="col-3 form-group">
+
+                        <p>
+                            @Html.LabelFor(model => model.p_bill)
+                            @Html.TextBoxFor(model => model.p_bill,
+                      "", new { @class = "form-control", @Value = @item.p_bill, @readonly = true })
+                        </p>
+                        @*<h5> @item.bill</h5>*@
+                    </div>
+                </div>
+            </div>
+
+        }
+        <div class="row justify-content-end form-group">
+            <div class="col-lg-4 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated">
+                <div class="cart-total mb-3 ">
+                    <h3>Bill Generate</h3>
+                    <hr />
+                    <p class="d-flex total-price">
+                        <h5>
+                            <span>Total</span>
+                            <span>Rs.@TempData["total"]</span>
+                        </h5>
+                    </p>
+                </div>
+
+
+                <input type="submit" value="SUBMIT" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+<div class="btn btn-outline-danger ">Print Bill</div>
+
+
+
+

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="onlinefoodmollModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'onlinefoodmoll.dbo.Admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'onlinefoodmoll.dbo.Invoice2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Invoice2">
+    <Key>
+      <PropertyRef Name="sno" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="email" />
+      <PropertyRef Name="date" />
+      <PropertyRef Name="p_name" />
+      <PropertyRef Name="p_price" />
+      <PropertyRef Name="p_qty" />
+      <PropertyRef Name="p_bill" />
+    </Key>
+    <Property Name="sno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="p_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="p_price" Type="int" Nullable="false" />
+    <Property Name="p_qty" Type="int" Nullable="false" />
+    <Property Name="p_bill" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="p_price" Type="int" Nullable="false" />
+    <Property Name="image_path" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="onlinefoodmollModel1StoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Admin].[id] AS [id], 
+    [Admin].[name] AS [name], 
+    [Admin].[password] AS [password]
+    FROM [dbo].[Admin] AS [Admin]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Invoice2" EntityType="Self.Invoice2" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Invoice2].[sno] AS [sno], 
+    [Invoice2].[name] AS [name], 
+    [Invoice2].[email] AS [email], 
+    [Invoice2].[date] AS [date], 
+    [Invoice2].[p_name] AS [p_name], 
+    [Invoice2].[p_price] AS [p_price], 
+    [Invoice2].[p_qty] AS [p_qty], 
+    [Invoice2].[p_bill] AS [p_bill]
+    FROM [dbo].[Invoice2] AS [Invoice2]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

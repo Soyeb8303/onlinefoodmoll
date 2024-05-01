@@ -1,0 +1,86 @@
+﻿
+
+@model ONLINEFOODMOLL.Models.Photo
+@{
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+    </style>
+</head>
+
+@if (TempData["total"] == null)
+{
+    <h1>cart is empty</h1>
+    <a href="@Url.Action("Single", "Data")">Go Back</a>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ftco-animate fadeInUp ftco-animated">
+                <div class="cart-list">
+                    <h3>Total Item : @TempData["item_count"]</h3>
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+                                <th>Remove</th>
+                                @*<th>ID</th>*@
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in TempData["cart"] as List<ONLINEFOODMOLL.Models.Cart>)
+
+                            {
+                                <tr class="text-center">
+
+                                    <td class="product-remove">
+                                        <a href="@Url.Action("Remove", new { id = item.p_id })">
+                                            <label class="col-sm-3 col-form-label fa-solid fa-remove"></label>
+                                        </a>
+                                    </td>
+                             
+                                    <td class="product name">
+                                        <hp>@item.p_name</hp>
+                                       
+                                    </td>
+                                    <td class="price">
+                                        <p> @item.p_price</p> 
+
+                                    </td>
+                                    <td class="quantity">@item.p_qty</td>
+                                    <td class="total">Rs. @item.p_bill</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-lg-4 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated">
+                <div class="cart-total mb-3">
+                    <h3>Cart Totals</h3>
+                    <hr />
+                    <p class="d-flex total-price">
+                        <h5>
+                            <span>Total</span>
+                            <span>Rs.@TempData["total"]</span>
+                        </h5>
+                    </p>
+                </div>
+                <a href="@Url.Action("Invoice","Data")"> Go To Billing </a>
+
+            </div>
+        </div>
+    </div>
+}
+
+<hr />
+
